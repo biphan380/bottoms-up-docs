@@ -1,0 +1,648 @@
+id_=0c91d113-0fb6-42c8-acbd-36f2758bceed
+embedding=None
+metadata={File Name: docs/getting_started/concepts.md, Content Type: code, Header Path: High-Level Concepts}
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=202d6c45c4dc7119e08359ab68a42ba3c133a5835fb1be94a822f82c0894de54
+text="```{tip}
+If you havent, install and complete starter tutorial before you read this. It will make a lot more sense!
+```
+"
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=fd445470-82e6-42b7-9626-5277579daad5
+embedding=None
+metadata={File Name: docs/getting_started/concepts.md, Content Type: text, Header Path: High-Level Concepts, Links: }
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=fdb7ee810c2ab1ba9becdde7591569f2c1eecaf93462f229b07d81bdb78a4966
+text=LlamaIndex helps you build LLM-powered applications (e.g. Q&A, chatbot, and agents) over custom data.
+
+In this high-level concepts guide, you will learn:
+* the retrieval augmented generation (RAG) paradigm for combining LLM with custom data,
+* key concepts and modules in LlamaIndex for composing your own RAG pipeline.
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=77fae47b-70f9-4cc6-86e8-15d7c1802a75
+embedding=None
+metadata={File Name: docs/getting_started/concepts.md, Content Type: text, Header Path: High-Level Concepts/Retrieval Augmented Generation (RAG), Links: }
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=4bb167911005c0411afa46142282aa623f0de6c4fe353ed168965e76f001330c
+text="Retrieval augmented generation (RAG) is a paradigm for augmenting LLM with custom data.
+It generally consists of two stages: 
+1) **indexing stage**: preparing a knowledge base, and
+2) **querying stage**: retrieving relevant context from the knowledge to assist the LLM in responding to a question
+
+!
+
+
+LlamaIndex provides the essential toolkit for making both steps super easy.
+Lets explore each stage in detail."
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=14c3f1bd-b901-46f4-a4a2-5a31cbd04095
+embedding=None
+metadata={File Name: docs/getting_started/concepts.md, Content Type: text, Header Path: High-Level Concepts/Retrieval Augmented Generation (RAG)/Indexing Stage, Links: }
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=bc713fc58aa640881e32e257337102f8e96690a6ef7917dbc308131575b62429
+text=LlamaIndex help you prepare the knowledge base with a suite of data connectors and indexes.
+! 
+
+**Data Connectors**:
+A data connector (i.e. `Reader`) ingest data from different data sources and data formats into a simple `Document` representation (text and simple metadata).
+
+**Documents / Nodes**: A `Document` is a generic container around any data source - for instance, a PDF, an API output, or retrieved data from a database. A `Node` is the atomic unit of data in LlamaIndex and represents a "chunk" of a source `Document`. It\s a rich representation that includes metadata and relationships (to other nodes) to enable accurate and expressive retrieval operations.
+
+**Data Indexes**: 
+Once you\ve ingested your data, LlamaIndex help you index data into a format that\s easy to retrieve.
+Under the hood, LlamaIndex parse the raw documents into intermediate representations, calculate vector embeddings, and infer metadata, etc.
+The most commonly used index is the VectorStoreIndex
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=02343cb7-c7bd-43b1-afcf-920d18a0282c
+embedding=None
+metadata={File Name: docs/getting_started/concepts.md, Content Type: text, Header Path: High-Level Concepts/Retrieval Augmented Generation (RAG)/Querying Stage, Links: }
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=5dda026d5c1ea276a781a16168d24462be4bbd56ab0489e5712bcc02f384ebec
+text=In the querying stage, the RAG pipeline retrieves the most relevant context given a user query,
+and pass that to the LLM (along with the query) to synthesize a response.
+This gives the LLM up-to-date knowledge that is not in its original training data,
+(also reducing hallucination).
+The key challenge in the querying stage is retrieval, orchestration, and reasoning over (potentially many) knowledge bases.
+
+LlamaIndex provides composable modules that help you build and integrate RAG pipelines for Q&A (query engine), chatbot (chat engine), or as part of an agent.
+These building blocks can be customized to reflect ranking preferences, as well as composed to reason over multiple knowledge bases in a structured way.
+
+!
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=58015269-2839-468f-9683-efcd71070fee
+embedding=None
+metadata={File Name: docs/getting_started/concepts.md, Content Type: text, Header Path: High-Level Concepts/Retrieval Augmented Generation (RAG)/Querying Stage/Building Blocks, Links: }
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=4828359ea13538f2e6bf9bbe79b51c703c09b0cd9c9bfe476848156ccf6441fe
+text=**Retrievers**: 
+A retriever defines how to efficiently retrieve relevant context from a knowledge base (i.e. index) when given a query.
+The specific retrieval logic differs for difference indices, the most popular being dense retrieval against a vector index.
+
+**Node Postprocessors**:
+A node postprocessor takes in a set of nodes, then apply transformation, filtering, or re-ranking logic to them. 
+
+**Response Synthesizers**:
+A response synthesizer generates a response from an LLM, using a user query and a given set of retrieved text chunks.
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=6e12c53d-88e4-4604-8d13-dc8b3fd204ef
+embedding=None
+metadata={File Name: docs/getting_started/concepts.md, Content Type: text, Header Path: High-Level Concepts/Retrieval Augmented Generation (RAG)/Querying Stage/Pipelines, Links: }
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=ff353705a5e0ae8d1d1d6390cf5e58bdc18d606c3fed9864a34f1988d1483ab0
+text=**Query Engines**:
+A query engine is an end-to-end pipeline that allow you to ask question over your data.
+It takes in a natural language query, and returns a response, along with reference context retrieved and passed to the LLM.
+
+
+**Chat Engines**: 
+A chat engine is an end-to-end pipeline for having a conversation with your data
+(multiple back-and-forth instead of a single question & answer).
+
+**Agents**: 
+An agent is an automated decision maker (powered by an LLM) that interacts with the world via a set of tools.
+Agent may be used in the same fashion as query engines or chat engines. 
+The main distinction is that an agent dynamically decides the best sequence of actions, instead of following a predetermined logic.
+This gives it additional flexibility to tackle more complex tasks.
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=76341c8c-34f5-44fc-a30a-bf0210a9876f
+embedding=None
+metadata={File Name: docs/getting_started/concepts.md, Content Type: text, Header Path: High-Level Concepts/Retrieval Augmented Generation (RAG)/Querying Stage/Pipelines, Links: }
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=88afdda7e5c666edbab5ee24097757c84b85ee70a3137cabc374775ab04c8076
+text=* tell me how to customize things.
+* curious about a specific module? Check out the module guides 👈
+* have a use case in mind? Check out the end-to-end tutorials
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=343cba40-d8f1-40b2-bb35-d496033e34a8
+embedding=None
+metadata={File Name: docs/getting_started/installation.md, Content Type: text, Header Path: Installation and Setup/Installation from Pip, Links: }
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=73eb91904010daddf1df2c43a1c308471f2e89263904e61aab5ef2b0b412f4c2
+text=You can simply do:
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=5e165501-d90c-4d3a-9d2b-d475e0d56323
+embedding=None
+metadata={File Name: docs/getting_started/installation.md, Content Type: text, Header Path: Installation and Setup/Installation from Pip, Links: }
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=06646549587849dff2b4ff54fff94cd770d365dba83addd7a2aec2b159ee73fb
+text=pip install llama-index
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=c558ef91-5670-472e-aaa1-652be5a97d80
+embedding=None
+metadata={File Name: docs/getting_started/installation.md, Content Type: text, Header Path: Installation and Setup/Installation from Source, Links: }
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=2282975768b127f111d6673a24e6e8b4a9beef174f5a1816468e985b7dc91eb5
+text=Git clone this repository: `git clone https://github.com/jerryjliu/llama_index.git`. Then do:
+
+- `pip install -e .` if you want to do an editable install (you can modify source files) of just the package itself.
+- `pip install -r requirements.txt` if you want to install optional dependencies + dependencies used for development (e.g. unit testing).
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=b22e60f0-9935-48f6-ba53-74d0b6750357
+embedding=None
+metadata={File Name: docs/getting_started/installation.md, Content Type: text, Header Path: Installation and Setup/Environment Setup, Links: }
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=d46a9951d2b1c5271ea7dc144b21ae06a7e81d2e5676d5cb3febf444058f30ba
+text="By default, we use the OpenAI GPT-3 `text-davinci-003` model. In order to use this, you must have an OPENAI_API_KEY setup.
+You can register an API key by logging into OpenAIs page and creating a new API token."
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=74c53ee3-e8e6-4253-8d67-fcfe03c8a849
+embedding=None
+metadata={File Name: docs/getting_started/installation.md, Content Type: text, Header Path: Installation and Setup/Environment Setup, Links: }
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=be3a9a6397f877bf1352e5eb84942e3937eff5c6b3f5d19dd275246ec7e50c5c
+text=You can also customize the underlying LLM. You may
+need additional environment keys + tokens setup depending on the LLM provider.
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=defe1ddc-3352-4f37-99b1-3a2fcc162546
+embedding=None
+metadata={File Name: docs/getting_started/starter_example.md, Content Type: code, Header Path: Starter Tutorial}
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=ba2d60df763c048374c735dc3f6ae20711fef54699132eda33f669306cbb30c5
+text="```{tip}
+Make sure youve followed the installation steps first.
+```
+"
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=e530e36d-7eaf-4b8e-9f0e-266b1ac8c8cd
+embedding=None
+metadata={File Name: docs/getting_started/starter_example.md, Content Type: text, Header Path: Starter Tutorial, Links: }
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=3ce461edc45a9926e2c481a2e485f24c5336fe48d3e56fd41277b98a00f2c678
+text=Here is a starter example for using LlamaIndex.
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=6b56fcd8-6959-4af0-931b-d714fd29015a
+embedding=None
+metadata={File Name: docs/getting_started/starter_example.md, Content Type: text, Header Path: Starter Tutorial/Download, Links: }
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=45d049341a0ea5f37c7ecb5c652eebc014e992439d3280144ef82d193d919e98
+text=LlamaIndex examples can be found in the `examples` folder of the LlamaIndex repository.
+We first want to download this `examples` folder. An easy way to do this is to just clone the repo:
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=62280a26-56fe-4adc-96a8-1c94d7a79038
+embedding=None
+metadata={File Name: docs/getting_started/starter_example.md, Content Type: text, Header Path: Starter Tutorial/Download, Links: }
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=0ee38a82d7bbea0d72ea2923615c6123c0849366519a54d7e21e628e0bc78a2c
+text=$ git clone https://github.com/jerryjliu/llama_index.git
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=6c51ad4b-ce1e-43c3-bbdc-af87d12b912d
+embedding=None
+metadata={File Name: docs/getting_started/starter_example.md, Content Type: text, Header Path: Starter Tutorial/Download, Links: }
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=465fe3c07922ea30357c7f1d204770f11605905bed7c3cd46d301b88aeefd6ff
+text=Next, navigate to your newly-cloned repository, and verify the contents:
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=8a341e2c-7ae5-4639-8416-c892d015908b
+embedding=None
+metadata={File Name: docs/getting_started/starter_example.md, Content Type: text, Header Path: Starter Tutorial/Download, Links: }
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=e86bdc32fb2466cf7d48777e4e1fa9a537c1f120794a772e150ccd24ce6d8ec4
+text=$ cd llama_index
+$ ls
+LICENSE                data_requirements.txt  tests/
+MANIFEST.in            examples/              pyproject.toml
+Makefile               experimental/          requirements.txt
+README.md              llama_index/             setup.py
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=b0d8170e-32cc-4f10-9e55-6500595afac5
+embedding=None
+metadata={File Name: docs/getting_started/starter_example.md, Content Type: text, Header Path: Starter Tutorial/Download, Links: }
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=68a7ec86c0d43cbdc5bee088974ad98d5c5e30b02a8f8b0deed0232c1cc7b270
+text=We now want to navigate to the following folder:
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=d3987ee0-e5d3-4757-ae5c-812f159236b9
+embedding=None
+metadata={File Name: docs/getting_started/starter_example.md, Content Type: text, Header Path: Starter Tutorial/Download, Links: }
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=79d7efb9dc55c855cc21bd5bd1b1389c8c69206fdf6b7831e3188180450b8e2a
+text=$ cd examples/paul_graham_essay
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=2227c75e-c3a3-4636-bd9d-ce9c412228e0
+embedding=None
+metadata={File Name: docs/getting_started/starter_example.md, Content Type: text, Header Path: Starter Tutorial/Download, Links: }
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=2a20a71cc565438aaf363bde09b0dec2d6ceb6e31160eaa82941c73dc5408b1a
+text=This contains LlamaIndex examples around Paul Graham\s essay, "What I Worked On". A comprehensive set of examples are already provided in `TestEssay.ipynb`. For the purposes of this tutorial, we can focus on a simple example of getting LlamaIndex up and running.
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=f295e7ba-e6bb-41ba-b562-fb73fec00552
+embedding=None
+metadata={File Name: docs/getting_started/starter_example.md, Content Type: text, Header Path: Starter Tutorial/Build and Query Index, Links: }
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=53dd380827dd98d0033755280328c63735e2bcf89197e6361f0afc3eb9184997
+text=Create a new `.py` file with the following:
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=7a5ff7c8-7206-480e-9723-e3a29a0c0562
+embedding=None
+metadata={File Name: docs/getting_started/starter_example.md, Content Type: text, Header Path: Starter Tutorial/Build and Query Index, Links: }
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=78c5cf76e28633b5f2ddefecd32de8b118c89ce77fb6f3704a0e7dd605236c9c
+text="from llama_index import VectorStoreIndex, SimpleDirectoryReader
+
+documents = SimpleDirectoryReader(data).load_data()
+index = VectorStoreIndex.from_documents(documents)"
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=ae00181f-131f-4427-a813-ea6e46dfb547
+embedding=None
+metadata={File Name: docs/getting_started/starter_example.md, Content Type: text, Header Path: Starter Tutorial/Build and Query Index, Links: }
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=96b567407db0591a2f3d518e08787d69f71cacf27e97f59b122dc7e13fbdd189
+text=This builds an index over the documents in the `data` folder (which in this case just consists of the essay text). We then run the following
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=64d63b73-3dde-4cea-98fe-360bdaf43427
+embedding=None
+metadata={File Name: docs/getting_started/starter_example.md, Content Type: text, Header Path: Starter Tutorial/Build and Query Index, Links: }
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=09908ef7c38e0f65475286b9a44e464874ac49732923bde19cb689c98e15419c
+text=query_engine = index.as_query_engine()
+response = query_engine.query("What did the author do growing up?")
+print(response)
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=fd4ed39c-3c7d-4022-a35e-023aaf57542e
+embedding=None
+metadata={File Name: docs/getting_started/starter_example.md, Content Type: text, Header Path: Starter Tutorial/Build and Query Index, Links: }
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=a6fd85257385949a60af915382ea5ad9f16dcbba24fb5c84f90aa422cb59feaa
+text=You should get back a response similar to the following: `The author wrote short stories and tried to program on an IBM 1401.`
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=09b2875b-592f-4df9-8c75-15e6a10e7c73
+embedding=None
+metadata={File Name: docs/getting_started/starter_example.md, Content Type: text, Header Path: Starter Tutorial/Viewing Queries and Events Using Logging, Links: }
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=4388e691bbaf383af54242eaf4c96dd6bd8ed8f326fb77e722a00b616446a195
+text=In a Jupyter notebook, you can view info and/or debugging logging using the following snippet:
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=d86484e8-45bf-401b-8b42-863d388d2806
+embedding=None
+metadata={File Name: docs/getting_started/starter_example.md, Content Type: text, Header Path: Starter Tutorial/Viewing Queries and Events Using Logging, Links: }
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=f5cff1c6d84edefe9248e719c28965fca16cea1649c823d3dc27c709043d9caa
+text=import logging
+import sys
+
+logging.basicConfig(stream=sys.stdout
+level=logging.DEBUG)
+logging.getLogger().addHandler(logging.StreamHandler(stream=sys.stdout))
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=9288d584-ed66-4f53-929a-4ecb62b1db6f
+embedding=None
+metadata={File Name: docs/getting_started/starter_example.md, Content Type: text, Header Path: Starter Tutorial/Viewing Queries and Events Using Logging, Links: }
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=3114ab4e527c58560e14303e2c847f4cbe3b88d3f383fc143e9ae9ee8b3a7fd0
+text=You can set the level to `DEBUG` for verbose output, or use `level=logging.INFO` for less.
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=e64e2405-c7c7-45ec-81df-c4e74628a9f9
+embedding=None
+metadata={File Name: docs/getting_started/starter_example.md, Content Type: text, Header Path: Starter Tutorial/Saving and Loading, Links: }
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=90eaebde5cdb07116e06a1a52d3ada8702cbe2b8ab680e95d04b4df624d13718
+text=By default, data is stored in-memory.
+To persist to disk (under `./storage`):
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=3902e8ee-37a8-49cb-82de-555f801fc784
+embedding=None
+metadata={File Name: docs/getting_started/starter_example.md, Content Type: text, Header Path: Starter Tutorial/Saving and Loading, Links: }
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=c5349730ca115725b1ae1e69445cd2bfd6242f24310b5e04ec9fec83223725cf
+text=index.storage_context.persist()
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=731981f6-7019-4641-b1c5-e41a892f983c
+embedding=None
+metadata={File Name: docs/getting_started/starter_example.md, Content Type: text, Header Path: Starter Tutorial/Saving and Loading, Links: }
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=31b6cbc8d877e6220d5183ca22bc09a0cd2d7352b5844322e18571eb88d128f3
+text=To reload from disk:
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=aa62df18-faf5-439d-a0d8-c7c8aa24845e
+embedding=None
+metadata={File Name: docs/getting_started/starter_example.md, Content Type: text, Header Path: Starter Tutorial/Saving and Loading, Links: }
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=f9c4c509babbf5dedef4fa1e0224e988e2cadf287afef36890dffe86e118e1a9
+text=from llama_index import StorageContext, load_index_from_storage
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=28621ad9-9d86-45a5-8f52-0549e6ed4525
+embedding=None
+metadata={File Name: docs/getting_started/starter_example.md, Content Type: text, Header Path: Starter Tutorial/rebuild storage context, Links: }
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=4938995ee48b6f7f5315869c8322d354df9fdf787bcb4b791f8c144abf332e32
+text=storage_context = StorageContext.from_defaults(persist_dir="./storage")
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=c4b973e7-5c1d-4b27-b80f-9ac514bee4f7
+embedding=None
+metadata={File Name: docs/getting_started/starter_example.md, Content Type: text, Header Path: Starter Tutorial/load index, Links: }
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={}
+hash=e9f121d76f078dc3260c60c7086796ddc1ff6fbd52e68826f09b9b8f65d2ce52
+text=index = load_index_from_storage(storage_context)
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+), Document(id_=17e69b50-d2ae-4523-b9a1-f538ee64d8fa
+embedding=None
+metadata={File Name: docs/getting_started/starter_example.md, Content Type: code, Header Path: Starter Tutorial/load index}
+excluded_embed_metadata_keys=[]
+excluded_llm_metadata_keys=[]
+relationships={<NodeRelationship.PARENT: 4>: RelatedNodeInfo(node_id=c4b973e7-5c1d-4b27-b80f-9ac514bee4f7
+node_type=None
+metadata={}
+hash=None)}
+hash=3ab2360df96d7428b7bf7114ea03a8ea9d1bf22c372cbcbd9417eac6fdf3608f
+text=```{admonition} Next Steps
+* learn more about the high-level concepts.
+* tell me how to customize things.
+* curious about a specific module? check out the guides 👈
+* have a use case in mind? check out the end-to-end tutorials
+```
+start_char_idx=None
+end_char_idx=None
+text_template={metadata_str}
+
+{content}
+metadata_template={key}: {value}
+metadata_seperator=
+)]
