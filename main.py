@@ -31,4 +31,13 @@ contributing_docs = load_markdown_docs("docs/development")
 
 from llama_index.schema import MetadataMode
 
-print(getting_started_docs)
+# lets save one of the document objects to a txt file so we can better understand it.
+# We can ask code interpreter to format it better too
+
+original_stdout = sys.stdout # Save the original stdout object for later 
+with open('getting_started_docs_output.txt', 'w') as f:
+    sys.stdout = f
+    print(getting_started_docs)
+
+# Revert stdout back to original
+sys.stdout = original_stdout
