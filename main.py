@@ -55,4 +55,9 @@ sys.stdout = original_stdout
 # Hide the File Name from the LLM
 agent_docs[0].excluded_llm_metadata_keys = ["File Name"]
 
-print(agent_docs[0].get_content(metadata_mode=MetadataMode.LLM))
+# print(agent_docs[0].get_content(metadata_mode=MetadataMode.LLM))
+
+# Hide the File Name from the embedding model
+agent_docs[0].excluded_embed_metadata_keys = ["File Name"]
+print(agent_docs[0].get_content(metadata_mode=MetadataMode.EMBED))
+
