@@ -52,5 +52,7 @@ with open('agent_docs_output.txt', 'w') as f:
 # Revert stdout back to original
 sys.stdout = original_stdout
 
+# Hide the File Name from the LLM
+agent_docs[0].excluded_llm_metadata_keys = ["File Name"]
 
-print(agent_docs[0].get_content(metadata_mode=MetadataMode.ALL))
+print(agent_docs[0].get_content(metadata_mode=MetadataMode.LLM))
