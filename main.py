@@ -31,13 +31,26 @@ contributing_docs = load_markdown_docs("docs/development")
 
 from llama_index.schema import MetadataMode
 
+text_template = "Content Metadata:\n{metadata_str}\n\nContent:\n{content}"
+
+metadata_template = "{key}: {value},"
+metadata_seperator= "seperator starts*********************************************************************seperator ends"
+
+for doc in agent_docs:
+    doc.text_template = text_template
+    doc.metadata_template = metadata_template
+    doc.metadata_seperator = metadata_seperator
+
 # lets save one of the document objects to a txt file so we can better understand it.
 # We can ask code interpreter to format it better too
 
 original_stdout = sys.stdout # Save the original stdout object for later 
-with open('getting_started_docs_output.txt', 'w') as f:
+with open('agent_docs_output.txt', 'w') as f:
     sys.stdout = f
-    print(getting_started_docs)
+    print(agent_docs)
 
 # Revert stdout back to original
 sys.stdout = original_stdout
+
+
+print(agent_docs[0].get_content(metadata_mode=MetadataMode.ALL))

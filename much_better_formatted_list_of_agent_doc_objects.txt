@@ -1,0 +1,41 @@
+﻿{
+  'id_': '5ec648a4-be88-4d2b-8b9f-1d71ff343a47',
+  'embedding': None,
+  'metadata': {
+    'File Name': 'docs/core_modules/agent_modules/agents/modules.md',
+    'Content Type': 'text',
+    'Header Path': 'Module Guides',
+    'Links': ''
+  },
+  'excluded_embed_metadata_keys': [],
+  'excluded_llm_metadata_keys': [],
+  'relationships': {},
+  'hash': '82b59653d73e8d6b9f8bc804b8b740f9dd35d687819730b4fbb3308fc5bbdad6',
+  'text': 'These guide provide an overview of how to use our agent classes.\n\nFor more detailed guides on how to use specific tools, check out our tools module guides.',
+  'start_char_idx': None,
+  'end_char_idx': None,
+  'text_template': 'Content Metadata:\n{metadata_str}\n\nContent:\n{content}',
+  'metadata_template': '{key}: {value},',
+  'metadata_seperator': 'seperator starts*********************************************************************seperator ends'
+}
+
+{
+  'id_': 'f3e17b4f-3edd-4bae-8430-0c927aaf12e7',
+  'embedding': None,
+  'metadata': {
+    'File Name': 'docs/core_modules/agent_modules/agents/root.md',
+    'Content Type': 'text',
+    'Header Path': 'Data Agents/Concept/Blog Post',
+    'Links': ''
+  },
+  'excluded_embed_metadata_keys': [],
+  'excluded_llm_metadata_keys': [],
+  'relationships': {},
+  'hash': 'a215fad721bffafd6cab941451efe903f731900932180a5bbdc7732fe39cd30a',
+  'text': 'For full details, please check out our detailed blog post.',
+  'start_char_idx': None,
+  'end_char_idx': None,
+  'text_template': 'Content Metadata:\n{metadata_str}\n\nContent:\n{content}',
+  'metadata_template': '{key}: {value},',
+  'metadata_seperator': 'seperator starts*********************************************************************seperator ends'
+}
